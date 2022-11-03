@@ -96,6 +96,8 @@ Plug 'tpope/vim-sleuth'
 
 Plug 'vim-airline/vim-airline'
 
+Plug 'tpope/vim-fugitive'
+
 Plug 'dyng/ctrlsf.vim'
 
 Plug 'tomasiser/vim-code-dark'
@@ -105,4 +107,3 @@ call plug#end()
 
 " Colourscheme
 colorscheme codedark
-
