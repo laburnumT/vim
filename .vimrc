@@ -87,6 +87,10 @@ set clipboard=unnamed
 " Show airline buffers
 let g:airline#extensions#tabline#enabled = 1
 
+let g:ycm_autoclose_preview_window_after_completion = 1
+nnoremap <leader>g :YcmCompleter GoTo<CR>
+let g:ycm_confirm_extra_conf = 0
+
 
 call plug#begin()
 Plug 'scrooloose/nerdtree'
