@@ -100,7 +100,6 @@ Plug 'tpope/vim-sleuth'
 
 Plug 's3rvac/vim-syntax-yara'
 
-
 Plug 'vim-airline/vim-airline'
 
 Plug 'tpope/vim-fugitive'
@@ -110,6 +109,8 @@ Plug 'dyng/ctrlsf.vim'
 Plug 'tpope/vim-surround'
 
 Plug 'octol/vim-cpp-enhanced-highlight'
+
+Plug 'valloric/youcompleteme'
 
 Plug 'tomasiser/vim-code-dark'
 
