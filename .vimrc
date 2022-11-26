@@ -70,8 +70,10 @@ autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_
 
 " vim-commentary
 autocmd FileType c setlocal commentstring=//\ %s
+autocmd FileType cpp setlocal commentstring=//\ %s
 
 autocmd BufNewFile,BufRead *.yar,*.yara setlocal filetype=yara
+autocmd BufNewFile,BufRead *.ih setlocal filetype=cpp
 
 " Set utf-8
 set encoding=UTF-8
@@ -106,6 +108,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'dyng/ctrlsf.vim'
 
 Plug 'tpope/vim-surround'
+
+Plug 'octol/vim-cpp-enhanced-highlight'
 
 Plug 'tomasiser/vim-code-dark'
 
