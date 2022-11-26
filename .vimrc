@@ -91,6 +91,12 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 nnoremap <leader>g :YcmCompleter GoTo<CR>
 let g:ycm_confirm_extra_conf = 0
 
+" Enable highlighting of C++11 attributes
+let g:cpp_attributes_highlight = 1
+
+" Highlight struct/class member variables (affects both C and C++ files)
+let g:cpp_member_highlight = 1
+
 
 call plug#begin()
 Plug 'scrooloose/nerdtree'
@@ -112,7 +118,7 @@ Plug 'dyng/ctrlsf.vim'
 
 Plug 'tpope/vim-surround'
 
-Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'bfrg/vim-cpp-modern'
 
 Plug 'valloric/youcompleteme'
 
