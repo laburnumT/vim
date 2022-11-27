@@ -118,9 +118,9 @@ Plug 'dyng/ctrlsf.vim'
 
 Plug 'tpope/vim-surround'
 
-Plug 'bfrg/vim-cpp-modern'
+Plug 'bfrg/vim-cpp-modern', { 'for': ['c', 'cpp'] }
 
-Plug 'valloric/youcompleteme'
+Plug 'valloric/youcompleteme', { 'do': './install.py --all' }
 
 Plug 'tomasiser/vim-code-dark'
 
