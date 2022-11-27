@@ -97,7 +97,7 @@ let g:cpp_attributes_highlight = 1
 " Highlight struct/class member variables (affects both C and C++ files)
 let g:cpp_member_highlight = 1
 
-nnoremap <leader>f :%!clang-format<CR>
+nnoremap <leader>f :ClangFormat<CR>
 
 
 call plug#begin()
@@ -109,6 +109,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
 
 Plug 'tpope/vim-sleuth'
+
+Plug 'rhysd/vim-clang-format'
 
 Plug 's3rvac/vim-syntax-yara'
 
