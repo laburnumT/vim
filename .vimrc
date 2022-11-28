@@ -71,6 +71,7 @@ autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_
 " vim-commentary
 autocmd FileType c setlocal commentstring=//\ %s
 autocmd FileType cpp setlocal commentstring=//\ %s
+autocmd FileType yara setlocal commentstring=//\ %s
 
 " Set filetypes
 autocmd BufNewFile,BufRead *.yar,*.yara setlocal filetype=yara
