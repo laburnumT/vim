@@ -72,6 +72,7 @@ autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_
 autocmd FileType c setlocal commentstring=//\ %s
 autocmd FileType cpp setlocal commentstring=//\ %s
 
+" Set filetypes
 autocmd BufNewFile,BufRead *.yar,*.yara setlocal filetype=yara
 autocmd BufNewFile,BufRead *.ih setlocal filetype=cpp
 
@@ -97,7 +98,11 @@ let g:cpp_attributes_highlight = 1
 " Highlight struct/class member variables (affects both C and C++ files)
 let g:cpp_member_highlight = 1
 
+" Bind format to \f
 nnoremap <leader>f :YcmCompleter Format<CR>
+
+" Don't close buffers when switching
+set hidden
 
 
 call plug#begin()
