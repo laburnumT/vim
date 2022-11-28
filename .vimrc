@@ -101,6 +101,9 @@ let g:cpp_member_highlight = 1
 " Bind format to \f
 nnoremap <leader>f :YcmCompleter Format<CR>
 
+" Bind refactor to \r
+nnoremap <leader>r :execute 'YcmCompleter RefactorRename' input( 'Rename to: ' )<CR>
+
 " Don't close buffers when switching
 set hidden
 
