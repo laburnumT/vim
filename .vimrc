@@ -71,7 +71,6 @@ autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_
 " vim-commentary
 autocmd FileType c setlocal commentstring=//\ %s
 autocmd FileType cpp setlocal commentstring=//\ %s
-autocmd FileType yara setlocal commentstring=//\ %s
 
 " Set filetypes
 autocmd BufNewFile,BufRead *.yar,*.yara setlocal filetype=yara
@@ -108,6 +107,14 @@ nnoremap <leader>r :execute 'YcmCompleter RefactorRename' input( 'Rename to: ' )
 " Don't close buffers when switching
 set hidden
 
+" Start server for pdf
+if empty(v:servername) && exists('*remote_startserver')
+  call remote_startserver('VIM')
+endif
+
+let g:vimtex_view_general_viewer = 'okular'
+let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
+let g:vimtex_view_general_options_latexmk = '--unique'
 
 call plug#begin()
 Plug 'scrooloose/nerdtree'
@@ -122,6 +129,8 @@ Plug 'tpope/vim-sleuth'
 Plug 'rhysd/vim-clang-format'
 
 Plug 's3rvac/vim-syntax-yara'
+
+Plug 'lervag/vimtex'
 
 Plug 'vim-airline/vim-airline'
 
