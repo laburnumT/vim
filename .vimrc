@@ -116,10 +116,9 @@ endif
 " vim --remote-silent +%l %f
 let g:vimtex_view_general_viewer = 'okular'
 let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
-let g:vimtex_view_general_options_latexmk = '--unique'
 
 let g:vimtex_fold_enabled = 1
-let g:vimtex_fold_sections = [ "part", "chapter", "section", "subsection", "paragraph", "subparagraph"]
+
 autocmd FileType tex setlocal foldmethod=expr foldexpr=vimtex#fold#level(v:lnum)
 let g:vimtex_format_enabled = 1
 
