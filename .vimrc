@@ -61,7 +61,7 @@ nnoremap <C-f> :NERDTreeFind<CR>
 
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
-autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
+autocmd BufWinEnter * if &buftype != 'quickfix' && getcmdwintype() == '' | silent NERDTreeMirror | endif
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
@@ -117,6 +117,11 @@ endif
 let g:vimtex_view_general_viewer = 'okular'
 let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
 let g:vimtex_view_general_options_latexmk = '--unique'
+
+let g:vimtex_fold_enabled = 1
+let g:vimtex_fold_sections = [ "part", "chapter", "section", "subsection", "paragraph", "subparagraph"]
+autocmd FileType tex setlocal foldmethod=expr foldexpr=vimtex#fold#level(v:lnum)
+let g:vimtex_format_enabled = 1
 
 call plug#begin()
 Plug 'scrooloose/nerdtree'
