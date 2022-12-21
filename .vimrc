@@ -59,23 +59,35 @@ nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
-autocmd BufWinEnter * if &buftype != 'quickfix' && getcmdwintype() == '' | silent NERDTreeMirror | endif
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
-    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+augroup nerdtree
+  autocmd!
+  autocmd StdinReadPre * let s:std_in=1
+  autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+  autocmd BufWinEnter * if &buftype != 'quickfix' && getcmdwintype() == '' | silent NERDTreeMirror | endif
+  autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+  autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+  autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+      \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+augroup end
 
 " vim-commentary
-autocmd FileType c,cpp,yara setlocal commentstring=//\ %s
+augroup commentary
+  autocmd!
+  autocmd FileType c,cpp,yara setlocal commentstring=//\ %s
+augroup end
 
 " Enable spellcheck for certain file types
-autocmd FileType md,tex setlocal spell
+augroup spellchecking
+  autocmd!
+  autocmd FileType md,tex setlocal spell
+augroup end
 
 " Set filetypes
-autocmd BufNewFile,BufRead *.yar,*.yara setlocal filetype=yara
-autocmd BufNewFile,BufRead *.ih setlocal filetype=cpp
+augroup filetypes
+  autocmd!
+  autocmd BufNewFile,BufRead *.yar,*.yara setlocal filetype=yara
+  autocmd BufNewFile,BufRead *.ih setlocal filetype=cpp
+augroup end
 
 " Set utf-8
 set encoding=UTF-8
@@ -119,7 +131,11 @@ let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
 
 let g:vimtex_fold_enabled = 1
 
-autocmd FileType tex setlocal foldmethod=expr foldexpr=vimtex#fold#level(v:lnum)
+augroup vimTex
+  autocmd!
+  autocmd FileType tex setlocal foldmethod=expr foldexpr=vimtex#fold#level(v:lnum)
+augroup end
+
 let g:vimtex_format_enabled = 1
 
 call plug#begin()
