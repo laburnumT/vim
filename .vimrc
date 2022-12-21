@@ -73,6 +73,9 @@ autocmd FileType c setlocal commentstring=//\ %s
 autocmd FileType cpp setlocal commentstring=//\ %s
 autocmd FileType yara setlocal commentstring=//\ %s
 
+" Enable spellcheck for certain file types
+autocmd FileType md,tex setlocal spell
+
 " Set filetypes
 autocmd BufNewFile,BufRead *.yar,*.yara setlocal filetype=yara
 autocmd BufNewFile,BufRead *.ih setlocal filetype=cpp
