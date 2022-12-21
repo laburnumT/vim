@@ -79,7 +79,7 @@ augroup end
 " Enable spellcheck for certain file types
 augroup spellchecking
   autocmd!
-  autocmd FileType md,tex setlocal spell
+  autocmd FileType markdown,tex setlocal spell
 augroup end
 
 " Set filetypes
