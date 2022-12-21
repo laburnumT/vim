@@ -67,11 +67,8 @@ autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTa
 autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
     \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
 
-
 " vim-commentary
-autocmd FileType c setlocal commentstring=//\ %s
-autocmd FileType cpp setlocal commentstring=//\ %s
-autocmd FileType yara setlocal commentstring=//\ %s
+autocmd FileType c,cpp,yara setlocal commentstring=//\ %s
 
 " Enable spellcheck for certain file types
 autocmd FileType md,tex setlocal spell
