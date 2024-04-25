@@ -296,7 +296,7 @@ if !exists("c_no_c11")
   syn keyword   cType		max_align_t
   " C11 atomics (take down the shield wall!)
   syn keyword	cType		atomic_bool atomic_char atomic_schar atomic_uchar
-  syn keyword	Ctype		atomic_short atomic_ushort atomic_int atomic_uint
+  syn keyword	cType		atomic_short atomic_ushort atomic_int atomic_uint
   syn keyword	cType		atomic_long atomic_ulong atomic_llong atomic_ullong
   syn keyword	cType		atomic_char16_t atomic_char32_t atomic_wchar_t
   syn keyword	cType		atomic_int_least8_t atomic_uint_least8_t
@@ -310,6 +310,13 @@ if !exists("c_no_c11")
   syn keyword	cType		atomic_intptr_t atomic_uintptr_t
   syn keyword	cType		atomic_size_t atomic_ptrdiff_t
   syn keyword	cType		atomic_intmax_t atomic_uintmax_t
+endif
+if !exists("c_no_c23")
+  syn keyword	cAlignment	alignas
+  syn keyword	cConstant 	nullptr false true
+  syn keyword	cOperator	alignof typeof typeof_unqual static_assert
+  syn keyword	cStorageClass	constexpr thread_local
+  syn keyword	cType		bool nullptr_t _BitInt _Decimal32 _Decimal64 _Decimal128
 endif
 
 if !exists("c_no_ansi") || exists("c_ansi_constants") || exists("c_gnu")
